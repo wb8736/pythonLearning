@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+<body>
+    <form action="/todo/add" method="post">
+        <input type="text" name="todo" placeholder="请输入todo项">
+        <button type="submit">add</button>
+    </form>
+    <div>
+        {% for todo in todo_list %}
+            <span>{{ loop.index }}: {{ todo.todo }} ut@{{ todo.ut }}
+                <a href="/todo/delete?id={{ todo.id }}">删除</a>
+                <a href="/todo/edit?id={{ todo.id }}">编辑</a></span><br>
+        {% endfor %}
+    </div>
+</body>
+</html>

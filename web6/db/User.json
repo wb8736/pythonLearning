@@ -1,0 +1,26 @@
+{
+  "-1": {
+    "id": -1,
+    "_deleted": false,
+    "username": "游客",
+    "password": "",
+    "note": "test account",
+    "role": ""
+  },
+  "1": {
+    "id": 1,
+    "_deleted": false,
+    "username": "wang",
+    "password": "123456",
+    "note": "",
+    "role": 10
+  },
+  "2": {
+    "id": 2,
+    "_deleted": false,
+    "username": "admin",
+    "password": "123456",
+    "note": "",
+    "role": 1
+  }
+}

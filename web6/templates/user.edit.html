@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info Edit</title>
+</head>
+<body>
+    <h2>用户 {{ user.username }}</h2>
+    <form action="/user/edit?id={{ user.id }}" method="post">
+        <!--<input type="text" name="username" placeholder="{{ user.username }}" readonly="readonly">-->
+        <input type="password" name="password" placeholder="请输入新的密码">
+        <input type="text" name="note" placeholder="{{ user.note }}">
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>

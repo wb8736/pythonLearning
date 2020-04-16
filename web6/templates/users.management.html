@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+</head>
+<body>
+    <div>
+        <form action="/user/add" method="post">
+            <input type="text" name="username" placeholder="请输入用户名">
+            <input type="password" name="password" placeholder="请输入密码">
+            <input type="text" name="note" placeholder="请输入签名">
+            <select name="role">
+                <option value="1">admin</option>
+                <option value="10">user</option>
+            </select>
+            <button type="submit">添加</button>
+        </form>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <th>index</th>
+                <th>username</th>
+                <th>note</th>
+                <th>operation</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.note }}</td>
+                <td>
+                    <a href="/user/delete?id={{ user.id }}">删除</a>
+                    <a href="/user/edit?id={{ user.id }}">编辑</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

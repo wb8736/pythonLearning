@@ -1,0 +1,35 @@
+server.py  主程序
+1、新建socket对象
+    s = socket.socket()
+2、绑定(host, port) Note: (host, port)必须以tuple的格式传递，host = "" or "0.0.0.0",表示可以i全网访问
+    s.bind((host, port))
+3、监听服务
+    s.listen(5)
+4、接收请求数据
+    conn, addr = s.accept()
+    buffer = 1024
+    recv = conn.recv(buffer)
+5、将接到请求处理后的响应数据返回给客户端
+    conn.sendall(response)
+6、关闭连接
+    conn.close()
+
+
+Request类
+1、属性
+    method string: "GET" or "POST"
+    query dict: { "username": "wang", "id": 1} parse from "/path?username=wang&id=1"
+    path string: "/path" parse from "/path?username=wang&id=1"
+    headers dict: {"Accept-Language": "h-CN,zh;q=0.8"}
+    cookies dict:
+    body string: 请求数据中的body数据
+2、方法
+    add_cookies(self)
+    add_headers(self, header)  header是从客户端请求中的header按行解析后的list
+    form() 解析body中所有的表单数据
+
+utils.py
+1、方法
+    log(*args, **kwargs)
+    parsed_path(path)
+
